@@ -1,13 +1,42 @@
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDogs } from '../../redux/actions';
 
-export default function Card(props) {
+import Card from '../Card/Card';
+
+const Cards = () => {
+    
+    const dispatch = useDispatch();
+    const allDogs = useSelector((state) => state.dogs)
+    const [Dogs, setDogs] = useState(allDogs)
+  
+    useEffect(() => {
+      dispatch(getDogs());
+    }, [dispatch]);
+  
+    useEffect(() => {
+      setDogs(allDogs);
+    }, [allDogs]);
+  
     return (
-        <div className="Card">
-            <img className="Image" src={props.image} alt={props.name} />
-            <h2 className="Name">{props.name}</h2>
-            <p><strong>Life Span:</strong> {props.life_span}</p>
-            <p><strong>Temperament:</strong> {props.temperament}</p>
-            <p><strong>Height:</strong> {props.height} cm</p>
-            <p><strong>Weight:</strong> {props.weight} kg</p>
-        </div>
+      <div className="Cards">
+        {
+          Dogs.map((elem) => (
+            <Card
+              id={elem.id}
+              key={elem.id}
+              image={elem.image}
+              name={elem.name}
+              life_span={elem.life_span}
+              temperament={elem.temperament}
+              weight={elem.weight}
+              height={elem.height}
+            />
+          ))
+        }
+      </div>
     )
-}
+  }
+  
+  export default Cards;
