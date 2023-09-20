@@ -22,18 +22,7 @@ const Cards = () => {
     return (
       <div className="Cards">
         {
-          Dogs.map((elem) => (
-            <Card
-              id={elem.id}
-              key={elem.id}
-              image={elem.image}
-              name={elem.name}
-              life_span={elem.life_span}
-              temperament={elem.temperament}
-              weight={elem.weight}
-              height={elem.height}
-            />
-          ))
+          Dogs.map((elem) => (<Card dogs={elem}/>))
         }
       </div>
     )
