@@ -1,9 +1,12 @@
 import{
     GET_DOGS,
+    GET_ID
 } from "./type";
 
 const initialState = {
-    dogs: []
+    dogs: [],
+    alldogs: [],
+    dogsID:[]
 };
 
 const reducer = (state = initialState , actions) => {
@@ -11,9 +14,15 @@ const reducer = (state = initialState , actions) => {
         case GET_DOGS:
             return {
                 ...state,
-                dogs:actions.payload
+                dogs:actions.payload,
+                alldogs:actions.payload
             }
-
+        
+        case GET_ID:
+            return {
+                ...state,
+                dogsID:actions.payload
+            }
         default: 
         return state
     }
