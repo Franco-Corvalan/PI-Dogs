@@ -1,31 +1,28 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogs } from '../../redux/actions';
 
 import Card from '../Card/Card';
 
+import './Cards.css';
+
 const Cards = () => {
-    
-    const dispatch = useDispatch();
-    const allDogs = useSelector((state) => state.dogs)
-    const [Dogs, setDogs] = useState(allDogs)
-  
-    useEffect(() => {
-      dispatch(getDogs());
-    }, [dispatch]);
-  
-    useEffect(() => {
-      setDogs(allDogs);
-    }, [allDogs]);
-  
-    return (
-      <div className="Cards">
-        {
-          Dogs.map((elem) => (<Card dogs={elem}/>))
-        }
-      </div>
-    )
-  }
-  
-  export default Cards;
+  const dispatch = useDispatch();
+  const allDogs = useSelector((state) => state.dogs); // Usar la lista completa de perros
+
+  useEffect(() => {
+    dispatch(getDogs());
+  }, [dispatch]);
+
+  return (
+    <div className="Cards">
+      {allDogs.map((elem) => (
+        <Card key={elem.id} dogs={elem} />
+      ))}
+    </div>
+  );
+};
+
+export default Cards;
+
+

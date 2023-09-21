@@ -1,6 +1,7 @@
 import{
     GET_DOGS,
-    GET_ID
+    GET_ID,
+    GET_NAME
 } from "./type";
 
 const initialState = {
@@ -23,6 +24,13 @@ const reducer = (state = initialState , actions) => {
                 ...state,
                 dogsID:actions.payload
             }
+        
+        case GET_NAME:
+            return {
+                ...state,
+                dogs: [actions.payload]
+            }
+            
         default: 
         return state
     }

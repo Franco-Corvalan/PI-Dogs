@@ -1,0 +1,7 @@
+.Cards{
+    margin: 10px;
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 130PX;
+    margin-left: 110px;
+}

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogId } from '../../redux/actions';
 
@@ -23,6 +23,7 @@ function Detail() {
       <h2>Temperament: {dog.temperament}</h2>
       <h2>Height: {dog.height} cm</h2>
       <h2>Weight: {dog.weight} kg</h2>
+      <NavLink to={'/home'}><button>RETURN HOME</button></NavLink>
     </div>
   );
 }
