@@ -8,7 +8,7 @@ import './Cards.css';
 
 const Cards = () => {
   const dispatch = useDispatch();
-  const allDogs = useSelector((state) => state.dogs); // Usar la lista completa de perros
+  const allDogs = useSelector((state) => state.dogs); 
 
   useEffect(() => {
     dispatch(getDogs());

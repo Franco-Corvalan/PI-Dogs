@@ -65,7 +65,7 @@ export const getDogName = (name) => {
                 payload: data
             })
         } catch (error) {
-            alert(error.message)
+            alert('ningun perro con ese nombre')
         }
     }
 }

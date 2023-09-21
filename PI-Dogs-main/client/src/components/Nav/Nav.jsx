@@ -8,7 +8,7 @@ function Nav() {
       <div className="Nav">
         <h1>Navegacion</h1>
         
-        <NavLink to={'/home'}><button>RETURN HOME</button></NavLink>
+        <NavLink to='/home'>HOME</NavLink>
         <Search></Search>
       </div>
     );
