@@ -1,11 +1,14 @@
 import {
     GET_DOGS,
-    GET_DOGS_DB,
-    GET_DOGS_API,
     GET_NAME,
     GET_ID,
     GET_TEMPERAMENTS,
-    CREATE_DOG
+    CREATE_DOG,
+    FILTER_ORIGIN,
+    FILTER_TEMP,
+    ORDER_NAME,
+    ORDER_WEIGHT,
+    RESET
 } from './type';
 
 import axios from 'axios';
@@ -24,34 +27,6 @@ export const getDogs = () => {
             });
         } catch (error) {
             alert(error);
-        }
-    }
-}
-
-export const getDogsAPI = () => {
-    return async (dispatch) => {
-        try {
-            const { data } = await axios.get(`${URL}/api`)
-            return dispatch({
-                type: GET_DOGS_API,
-                payload: data
-            })
-        } catch (error) {
-            alert(error.message)
-        }
-    }
-}
-
-export const getDogsDB = () => {
-    return async (dispatch) => {
-        try {
-            const { data } = await axios.get(`${URL}/db`)
-            return dispatch({
-                type: GET_DOGS_DB,
-                payload: data
-            })
-        } catch (error) {
-            alert(error.message)
         }
     }
 }
@@ -87,13 +62,13 @@ export const getDogId = (id) => {
 export const getTemperaments = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(`${URL_BASE}/temperaments`)
+            const { data } = await axios.get(`http://localhost:3001/temperament`)
             return dispatch({
                 type: GET_TEMPERAMENTS,
                 payload: data
             })
         } catch (error) {
-            alert(error.message)
+            alert('error temp')
         }
     }
 }
@@ -109,5 +84,39 @@ export const createDog = (dog) => {
         } catch (error) {
             alert(error.message)
         }
+    }
+}
+
+export const filterOrigin = (source) => {
+    return {
+        type: FILTER_ORIGIN,
+        payload: source
+    }
+}
+
+export const filterTemp = (temp) => {
+    return {
+        type: FILTER_TEMP,
+        payload : temp
+    }
+}
+
+export const orderName = (order) => {
+    return{
+        type: ORDER_NAME,
+        payload: order
+    }
+}
+
+export const orderWeight = (order) => {
+    return{
+        type: ORDER_WEIGHT,
+        payload: order
+    }
+}
+
+export const reset = () => {
+    return {
+        type: RESET
     }
 }

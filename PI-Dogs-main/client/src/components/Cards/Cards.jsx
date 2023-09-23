@@ -1,18 +1,13 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getDogs } from '../../redux/actions';
+import { useSelector } from 'react-redux';
 
 import Card from '../Card/Card';
 
 import './Cards.css';
 
 const Cards = () => {
-  const dispatch = useDispatch();
+  
   const allDogs = useSelector((state) => state.dogs); 
-
-  useEffect(() => {
-    dispatch(getDogs());
-  }, [dispatch]);
 
   return (
     <div className="Cards">
