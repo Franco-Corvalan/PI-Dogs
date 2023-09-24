@@ -15,7 +15,7 @@ const initialState = {
     alldogs: [],
     dogsID:[],
     temperaments:[],
-    reset: []
+    pagNum:1
 };
 
 const reducer = (state = initialState , actions) => {
@@ -37,7 +37,8 @@ const reducer = (state = initialState , actions) => {
         case GET_NAME:
             return {
                 ...state,
-                dogs: [actions.payload]
+                dogs: [actions.payload],
+                pagNum:1,
             }
         case GET_TEMPERAMENTS:
             return {
@@ -56,18 +57,20 @@ const reducer = (state = initialState , actions) => {
             }
             return{
                 ...state,
-                dogs: [...filterDogs]
+                dogs: [...filterDogs],
+                pagNum:1
             }
 
         case ORDER_NAME: 
-             return {
+            return {
                 ...state,
                 dogs:[...state.dogs].sort((a,b) => 
                   actions.payload === 'ASC'
                   ? a.name.localeCompare(b.name)
                   : b.name.localeCompare(a.name)
-                )
-             }
+                ),
+                pagNum:1
+            }
 
         case ORDER_WEIGHT:
             let orderWeightFunction =
@@ -76,9 +79,34 @@ const reducer = (state = initialState , actions) => {
                 : (a, b) => { return Number(a.weight.split(" - ")[1]) - Number(b.weight.split(" - ")[1])} //DESC
         return {
             ...state,
-            dogs: [...state.dogs.sort(orderWeightFunction)]   
+            dogs: [...state.dogs.sort(orderWeightFunction)],
+            pagNum:1
             }
         
+        case FILTER_TEMP:
+            return {
+                ...state,
+                dogs: [...state.alldogs].filter((d) => d.temperament && d.temperament.includes(actions.payload)),
+                pagNum:1
+            }
+        
+        case RESET:
+            return {
+                ...state,
+                dogs: [...state.alldogs]
+            }
+        
+        case NEXT:
+            return{
+                ...state,
+                pagNum: state.pagNum + 1
+            }
+        
+        case PREV:
+            return {
+                ...state,
+                pagNum: state.pagNum -1
+            }
         default: 
         return state
     }

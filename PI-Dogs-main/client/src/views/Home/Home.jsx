@@ -1,4 +1,4 @@
-import Nav from '../../components/Nav/Nav';
+//import Nav from '../../components/Nav/Nav';
 import Cards from '../../components/Cards/Cards';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -19,7 +19,7 @@ const Home = () => {
 
   return(
     <div>
-      <Nav></Nav>
+      {/* <Nav></Nav> */}
       <Cards></Cards>
     </div>
   )

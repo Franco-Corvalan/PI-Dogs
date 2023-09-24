@@ -8,6 +8,8 @@ import {
     FILTER_TEMP,
     ORDER_NAME,
     ORDER_WEIGHT,
+    NEXT,
+    PREV,
     RESET
 } from './type';
 
@@ -118,5 +120,17 @@ export const orderWeight = (order) => {
 export const reset = () => {
     return {
         type: RESET
+    }
+}
+
+export const next = () => {
+    return {
+        type: NEXT
+    }
+}
+
+export const prev = () => {
+    return {
+        type: PREV
     }
 }
