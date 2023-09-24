@@ -9,7 +9,8 @@ const getTemperaments = async (req,res) => {
         .filter(elem => elem != null)
         .join(', ')
         .split(',')
-        .map(elem => elem.trim());
+        .map(elem => elem.trim())
+        .sort();
 
         for(const temp of arrTemp){
             await Temperaments.findOrCreate({where:{
