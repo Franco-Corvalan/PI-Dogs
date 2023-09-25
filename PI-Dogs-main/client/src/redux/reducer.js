@@ -7,6 +7,8 @@ import{
     GET_TEMPERAMENTS,
     ORDER_NAME,
     ORDER_WEIGHT,
+    NEXT,
+    PREV,
     RESET,
 } from "./type";
 
@@ -73,13 +75,13 @@ const reducer = (state = initialState , actions) => {
             }
 
         case ORDER_WEIGHT:
-            let orderWeightFunction =
+            let orderWeight =
             actions.payload === 'ASC'
                 ? (a, b) => { return Number(b.weight.split(" - ")[1]) - Number(a.weight.split(" - ")[1])} //ASC
                 : (a, b) => { return Number(a.weight.split(" - ")[1]) - Number(b.weight.split(" - ")[1])} //DESC
         return {
             ...state,
-            dogs: [...state.dogs.sort(orderWeightFunction)],
+            dogs: [...state.dogs.sort(orderWeight)],
             pagNum:1
             }
         
