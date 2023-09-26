@@ -42,7 +42,7 @@ export const getDogName = (name) => {
                 payload: data
             })
         } catch (error) {
-            alert('ningun perro con ese nombre')
+            alert('perro inexistente')
         }
     }
 }
@@ -78,7 +78,7 @@ export const getTemperaments = () => {
 export const createDog = (dog) => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.post();
+            const { data } = await axios.post(`${URL}/create`,dog);
             return dispatch({
                 type: CREATE_DOG,
                 payload: data

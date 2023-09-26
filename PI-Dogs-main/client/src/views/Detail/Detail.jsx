@@ -16,8 +16,9 @@ function Detail() {
   }, [dispatch]);
 
   return (
-    <div className="Nav">
-      <img className="Image" src={dog.image} alt={name} />
+    <div className='detalle'>
+       <div className="info">
+      <img className="img" src={dog.image} alt={dog.name} />
       <h1 className="Name">{dog.name}</h1>
       <h2>Life Span: {dog.life_span}</h2>
       <h2>Temperament: {dog.temperament}</h2>
@@ -25,6 +26,8 @@ function Detail() {
       <h2>Weight: {dog.weight} kg</h2>
       <NavLink to={'/home'}><button>RETURN HOME</button></NavLink>
     </div>
+    </div>
+   
   );
 }
 

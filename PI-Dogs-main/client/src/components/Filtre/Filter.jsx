@@ -1,6 +1,7 @@
 import React from "react";
 import {useDispatch , useSelector} from "react-redux";
 import { filterOrigin , orderName , orderWeight , filterTemp , reset} from "../../redux/actions";
+import './Filter.css';
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -26,27 +27,27 @@ const Filter = () => {
     }
 
     return (
-        <div>
-            <select className="ContainerOrig" name="Origin" onChange={handleOrigin}>
+        <div className="Filtro">
+            <select className="FiltroItem" name="Origin" onChange={handleOrigin}>
                 <option value="Default" disabled selected>(Select)</option>
                 <option value="ALL">ALL</option>
                 <option value="API">API</option>
                 <option value="DB">DB</option>
             </select>
 
-            <select className="ContainerName" name="NAME" onChange={handleName}>
+            <select className="FiltroItem" name="NAME" onChange={handleName}>
                 <option value="Default" disabled selected>(Select)</option>
-                <option value="ASC">ASC</option>
-                <option value="DES">DES</option>
+                <option value="ASC">A-Z</option>
+                <option value="DES">Z-A</option>
             </select>
 
-            <select className="ContainerWeight" name="WEIGHT" onChange={handleWeight}>
+            <select className="FiltroItem" name="WEIGHT" onChange={handleWeight}>
                 <option value="Default" disabled selected>(Select)</option>
-                <option value="ASC">ASC</option>
-                <option value="DES">DES</option>
+                <option value="ASC">MAY-MEN</option>
+                <option value="DES">MEN-MAY</option>
             </select>
 
-            <select className="ContainerTemp" name="TEMP" onChange={handleTemp}>
+            <select className="FiltroItem" name="TEMP" onChange={handleTemp}>
                 <option value="ContainerTemp" disabled selected>(Select Temp)</option>
                 {temperaments?.map((temperament)=>{
                     return (

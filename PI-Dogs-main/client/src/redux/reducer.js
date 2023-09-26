@@ -10,6 +10,7 @@ import{
     NEXT,
     PREV,
     RESET,
+    CREATE_DOG
 } from "./type";
 
 const initialState = {
@@ -27,7 +28,6 @@ const reducer = (state = initialState , actions) => {
                 ...state,
                 dogs:[...actions.payload],
                 alldogs:[...actions.payload],
-                reset:[...actions.payload]
             }
         
         case GET_ID:
@@ -77,8 +77,8 @@ const reducer = (state = initialState , actions) => {
         case ORDER_WEIGHT:
             let orderWeight =
             actions.payload === 'ASC'
-                ? (a, b) => { return Number(b.weight.split(" - ")[1]) - Number(a.weight.split(" - ")[1])} //ASC
-                : (a, b) => { return Number(a.weight.split(" - ")[1]) - Number(b.weight.split(" - ")[1])} //DESC
+                ? (a, b) => { return Math.round(Number(b.weight.split(" - ")[1]) - Number(a.weight.split(" - ")[1]))} //ASC
+                : (a, b) => { return Math.round(Number(a.weight.split(" - ")[1]) - Number(b.weight.split(" - ")[1]))} //DESC
         return {
             ...state,
             dogs: [...state.dogs.sort(orderWeight)],
@@ -108,6 +108,13 @@ const reducer = (state = initialState , actions) => {
             return {
                 ...state,
                 pagNum: state.pagNum -1
+            }
+
+        case CREATE_DOG:
+            return {
+                ...state,
+                dogs:[actions.payload, ...state.dogs],
+                alldogs:[actions.payload, ...state.alldogs]
             }
         default: 
         return state

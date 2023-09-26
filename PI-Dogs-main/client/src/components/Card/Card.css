@@ -2,13 +2,13 @@
     width: 320px;
     height: 490px;
     border-radius: 10px;
-    background-color: rgba(9,5,2,0.8);
+    background-color: rgba(9, 5, 2, 0.315);
     margin: 40px;
-    color: white;
     z-index: 1;
     border:3px solid ; 
     border-color:#02e7fcaf;
     border-radius: 15px;
+    margin-top: 100px;
 }
 
 

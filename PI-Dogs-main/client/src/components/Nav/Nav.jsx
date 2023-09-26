@@ -1,5 +1,5 @@
 import Search from "../SearchBar/Search";
-import Filter from "../Filtre/Filter"
+import Filter from "../Filtre/Filter";
 import { NavLink } from "react-router-dom";
 
 import "./Nav.css";
@@ -7,11 +7,10 @@ import "./Nav.css";
 function Nav() {
   return (
     <div className="Nav">
-      <h1>Navegacion</h1>
-
-      <NavLink to='/home'>HOME</NavLink>
-      <Filter></Filter>
-      <Search></Search>
+      <NavLink className="NavItem" to='/home'>HOME</NavLink>
+      <NavLink className="NavItem" to='/create'>CREATE</NavLink>
+      <Filter className="NavItem"></Filter>
+      <Search className="NavItem"></Search>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { next , prev } from "../../redux/actions";
-
+import './Paginado.css';
 export default function Paginate({ numPage, cantPage }) {
 
   const dispatch = useDispatch();
@@ -10,27 +10,23 @@ export default function Paginate({ numPage, cantPage }) {
     <div className="pagination">
       <div className="paginate">
         {numPage <= 1 ? (
-          <div>
+          <div className="pagination-item" >
             <div></div>
           </div>
         ) : (
-          <div>
+          <div className="pagination-item">
             <button onClick={() => dispatch(prev())}>PREV</button>
-            <p>{numPage - 1}</p>
           </div>
         )}
         
         <h3>{numPage}</h3>
 
         {numPage >= cantPage ? (
-          <div>
+          <div className="pagination-item">
             <div></div>
           </div>
         ) : (
-          <div>
-            <p>{numPage + 1}</p>
-            <p>{numPage + 2}</p>
-            <p>{`...${cantPage}`}</p>
+          <div className="pagination-item">
             <button onClick={() => dispatch(next())}>NEXT</button>
           </div>
         )}

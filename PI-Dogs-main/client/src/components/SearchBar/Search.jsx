@@ -1,6 +1,7 @@
 import { getDogName } from "../../redux/actions";
 import { useDispatch } from "react-redux"
 import React, { useState } from "react";
+import './Search.css';
 
 const Search = () => {
 
@@ -21,10 +22,9 @@ const Search = () => {
     dispatch(getDogName(onSearch))
   }
   return (
-    <div className="Nav">
-      <h1>Buscar</h1>
-      <input className="input" type='text' value={onSearch} onChange={handleChange} onKeyDown={handleKeypress}></input>
-      <button className="boton" onClick={add}>Search</button>
+    <div className="Buscar">
+      <input className="BuscarItem" type='text' value={onSearch} onChange={handleChange} onKeyDown={handleKeypress}></input>
+      <button className="BuscarItem" onClick={add}>Search</button>
     </div>
   );
 }
