@@ -18,6 +18,7 @@ const initialState = {
     alldogs: [],
     dogsID:[],
     temperaments:[],
+    reset: [],
     pagNum:1
 };
 
@@ -28,6 +29,7 @@ const reducer = (state = initialState , actions) => {
                 ...state,
                 dogs:[...actions.payload],
                 alldogs:[...actions.payload],
+                reset:[...actions.payload]
             }
         
         case GET_ID:
@@ -45,7 +47,8 @@ const reducer = (state = initialState , actions) => {
         case GET_TEMPERAMENTS:
             return {
                 ...state,
-                temperaments: actions.payload
+                temperaments: actions.payload,
+                pagNum:1
             }
         
         case FILTER_ORIGIN:
@@ -71,6 +74,11 @@ const reducer = (state = initialState , actions) => {
                   ? a.name.localeCompare(b.name)
                   : b.name.localeCompare(a.name)
                 ),
+                alldogs:[...state.alldogs].sort((a,b) => 
+                  actions.payload === 'ASC'
+                  ? a.name.localeCompare(b.name)
+                  : b.name.localeCompare(a.name)
+                ),
                 pagNum:1
             }
 
@@ -82,6 +90,7 @@ const reducer = (state = initialState , actions) => {
         return {
             ...state,
             dogs: [...state.dogs.sort(orderWeight)],
+            alldogs:[...state.dogs.sort(orderWeight)],
             pagNum:1
             }
         
@@ -95,7 +104,7 @@ const reducer = (state = initialState , actions) => {
         case RESET:
             return {
                 ...state,
-                dogs: [...state.alldogs]
+                dogs: [...state.reset]
             }
         
         case NEXT:
@@ -114,7 +123,7 @@ const reducer = (state = initialState , actions) => {
             return {
                 ...state,
                 dogs:[actions.payload, ...state.dogs],
-                alldogs:[actions.payload, ...state.alldogs]
+                alldogs:[...state.alldogs,actions.payload]
             }
         default: 
         return state

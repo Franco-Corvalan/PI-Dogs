@@ -21,7 +21,7 @@ export default function Paginate({ numPage, cantPage }) {
         
         <h3>{numPage}</h3>
 
-        {numPage >= cantPage ? (
+        {numPage > cantPage ? (
           <div className="pagination-item">
             <div></div>
           </div>

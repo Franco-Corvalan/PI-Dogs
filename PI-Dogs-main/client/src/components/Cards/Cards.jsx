@@ -9,13 +9,15 @@ const Cards = () => {
   
   const {dogs , pagNum} = useSelector((state) => state); 
   const cantDogs = 8;
+  console.log(dogs)
 
   let primero = (pagNum - 1) * cantDogs;
   let ultimo = pagNum * cantDogs;
   let cantPags = Math.floor(dogs.length / cantDogs);
 
-  const showDogs = dogs?.slice(primero,ultimo);
+  const showDogs = dogs.slice(primero,ultimo);
 
+  console.log(showDogs)
   return (
     <div>
       <div className="Cards">
