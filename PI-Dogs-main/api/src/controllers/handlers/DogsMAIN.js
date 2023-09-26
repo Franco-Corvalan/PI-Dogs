@@ -8,7 +8,7 @@ const getDogsMAIN = async () => {
         if(DB === null){
             return API
         } else{
-            return API.concat(DB);
+            return DB.concat(API);
         }
         
     } catch (error) {
