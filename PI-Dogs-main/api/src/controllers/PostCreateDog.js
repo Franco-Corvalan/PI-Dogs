@@ -2,7 +2,7 @@ const { Dog , Temperaments } = require('../db');
 
 const postDog = async (req,res) => {
     try {
-        const {name,life_span,image,weight,height,temperament=[]} = req.body;
+        const {name,life_span,image,weight,height,temperament} = req.body;
 
         const existingDog = await Dog.findOne({
             where: {
@@ -11,7 +11,7 @@ const postDog = async (req,res) => {
           });
       
           if (existingDog) {
-            return res.status(404).json({ error: 'El perro ya existe en la base de datos.' });
+            return res.status(404).json({ error: 'El perro ya existe en la base de datos' });
           }
         
         const dogCreate = await Dog.create({
@@ -21,8 +21,6 @@ const postDog = async (req,res) => {
             life_span:life_span,
             image:image,
         });
-        
-        //const temperamentarr=temperament.split(',').map(elem => elem.trim());
 
         for(const temp of temperament){
             let [temperament, create] = await Temperaments.findOrCreate({
