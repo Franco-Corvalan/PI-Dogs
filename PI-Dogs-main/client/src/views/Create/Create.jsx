@@ -4,6 +4,8 @@ import { createDog } from '../../redux/actions';
 import validation from '../../components/validation/validation';
 import { useNavigate } from "react-router-dom";
 
+import './Create.css';
+
 const CreateDogForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -95,7 +97,7 @@ const CreateDogForm = () => {
         <div className='Container__Create'>
             <form className='Form__Create' action='post' onSubmit={handleSubmit}>
 
-                <div>
+                <div className='Container__Inputs'>
                     <label className='Form__Label' htmlFor='name'>
                         NAME:
 
@@ -107,11 +109,11 @@ const CreateDogForm = () => {
                             value={formData.name}
                         />
 
-                        {errors.name && <p>{errors.name}</p>}
+                        {errors.name && <p className='error'>{errors.name}</p>}
                     </label>
                 </div>
 
-                <div>
+                <div className='Container__Inputs'>
                     <label className='Form__Label'>
                         IMAGE:
 
@@ -123,13 +125,13 @@ const CreateDogForm = () => {
                             value={formData.image}
                         />
 
-                        {errors.image && <p>{errors.image}</p>}
+                        {errors.image && <p className='error'>{errors.image}</p>}
                     </label>
 
 
                 </div>
 
-                <div>
+                <div className='Container__Inputs'>
                     <label className='Form__Label'>
                         HEIGHT:
 
@@ -149,12 +151,12 @@ const CreateDogForm = () => {
                             value={formData.height2}
                         />
 
-                        {errors.height1 && <p>{errors.height1}</p>}
+                        {errors.height1 && <p className='error'>{errors.height1}</p>}
 
                     </label>
                 </div>
 
-                <div>
+                <div className='Container__Inputs'>
                     <label className='Form__Label'>
                         WEIGHT:
 
@@ -174,12 +176,12 @@ const CreateDogForm = () => {
                             value={formData.weight2}
                         />
 
-                        {errors.weight1 && <p>{errors.weight1}</p>}
+                        {errors.weight1 && <p className='error'>{errors.weight1}</p>}
 
                     </label>
                 </div>
 
-                <div>
+                <div className='Container__Inputs'>
                     <label className='Form__Label'>
                         LIFE SPAN:
 
@@ -190,17 +192,17 @@ const CreateDogForm = () => {
                             onChange={handleChange}
                             value={formData.life_span}
                         />
-                        {errors.life_span && <p>{errors.life_span}</p>}
+                        {errors.life_span && <p className='error'>{errors.life_span}</p>}
 
                     </label>
                 </div>
 
-                <div>
+                <div className='Container__TEMP'>
                     <label className='Form__Label'>
                         TEMPERAMENTS:
 
                         <select onChange={handleTemps}>
-                            <option value="Default" disabled defaultValue>(Seleccionar temperamentos)</option>
+                            <option value="Default" disabled selected>(Seleccionar temperamentos)</option>
                             {
                                 temperaments?.map((temperament) => {
                                     return (
@@ -221,14 +223,15 @@ const CreateDogForm = () => {
                                     </div>
                                 ))
                             }
-                            {errors.temperament && <p>{errors.temperament}</p>}
+                            
                         </div>
+                        {errors.temperament && <p className='error'>{errors.temperament}</p>}
                     </label>
                 </div>
 
                 {
                     Object.keys(errors).length === 0
-                        ? <input className='Form__submit' type='submit' value="Submit" />
+                        ? <button className='Form__submit' type='submit' value="Submit" >SUBMIT</button>
                         : null
                 }
 

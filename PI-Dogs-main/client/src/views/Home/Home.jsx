@@ -1,4 +1,4 @@
-//import Nav from '../../components/Nav/Nav';
+
 import Cards from '../../components/Cards/Cards';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -15,11 +15,10 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getTemperaments())
-  },[dispatch])
+  },[])
 
   return(
     <div>
-      {/* <Nav></Nav> */}
       <Cards></Cards>
     </div>
   )

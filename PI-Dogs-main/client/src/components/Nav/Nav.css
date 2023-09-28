@@ -1,7 +1,5 @@
 .Nav{
-    background-color: rgba(3,3,3,0.9);
-    border-bottom:3px solid ; 
-    border-bottom-color:#02e7fcaf;
+    background-color: rgba(3, 3, 3, 0.6);
     display: flex;
     position:absolute;
     top: 0;
@@ -13,4 +11,5 @@
 
 .NavItem{
     margin: 200px;
+    color: #fff;
 }

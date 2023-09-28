@@ -10,7 +10,8 @@ import {
     ORDER_WEIGHT,
     NEXT,
     PREV,
-    RESET
+    RESET,
+    CLEAR
 } from './type';
 
 import axios from 'axios';
@@ -83,8 +84,9 @@ export const createDog = (dog) => {
                 type: CREATE_DOG,
                 payload: data
             })
+            
         } catch (error) {
-            alert(error.message)
+            alert('el perro ya existe')
         }
     }
 }
@@ -132,5 +134,11 @@ export const next = () => {
 export const prev = () => {
     return {
         type: PREV
+    }
+}
+
+export const clear = () => {
+    return {
+        type: CLEAR
     }
 }

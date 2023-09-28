@@ -8,7 +8,7 @@ export default function Card({ dogs }) {
 
   return (
     <div className="Card">
-      <NavLink to={`/detail/${id}`}>
+      <NavLink className='Ruta' to={`/detail/${id}`}>
         <img className="Image" src={image} alt={name} />
         <h2 className="Name">{name}</h2>
         <p><strong>Temperament:</strong> {temperament}</p>

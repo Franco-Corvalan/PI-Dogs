@@ -1,0 +1,47 @@
+.Container__Create {
+    background-color: rgba(9, 5, 2, 0.8);
+    flex: auto;
+    padding: 8rem;
+    width: 30rem;
+    display: flex;
+    margin-top: 100px;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.Container__Inputs{
+    margin: 30px;
+}
+
+.error{
+    color: #ff0000b4;
+}
+
+.SelectTemp{
+    display: flex;
+    margin: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    background-color: #161616;
+}
+
+.SelectRemov{
+    padding: 5px;
+}
+
+.Container__TEMP{
+    align-items: center;
+}
+
+.Cls{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    background-color: #9999;
+}

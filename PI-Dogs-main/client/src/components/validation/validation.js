@@ -37,6 +37,8 @@ const validation = (formData)=>{
 
 
     if(formData.temperament.length === 0) errors.temperament = "You must select at least 1 temperament"
+
+    else if(formData.temperament.length > 9) errors.temperament = "You must select at least 9 temperament"
     
     return errors
 }

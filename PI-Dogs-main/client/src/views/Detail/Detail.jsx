@@ -1,6 +1,6 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDogId } from '../../redux/actions';
+import { getDogId , clear } from '../../redux/actions';
 
 import './Detail.css';
 import { useEffect } from 'react';
@@ -12,6 +12,7 @@ function Detail() {
   const dog = useSelector((state) => state.dogsID);
 
   useEffect(() => {
+    dispatch(clear())
     dispatch(getDogId(id))
   }, [dispatch]);
 

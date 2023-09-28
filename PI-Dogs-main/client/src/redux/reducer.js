@@ -10,7 +10,8 @@ import{
     NEXT,
     PREV,
     RESET,
-    CREATE_DOG
+    CREATE_DOG,
+    CLEAR
 } from "./type";
 
 const initialState = {
@@ -90,7 +91,7 @@ const reducer = (state = initialState , actions) => {
         return {
             ...state,
             dogs: [...state.dogs.sort(orderWeight)],
-            alldogs:[...state.dogs.sort(orderWeight)],
+            alldogs:[...state.alldogs.sort(orderWeight)],
             pagNum:1
             }
         
@@ -104,7 +105,9 @@ const reducer = (state = initialState , actions) => {
         case RESET:
             return {
                 ...state,
-                dogs: [...state.reset]
+                dogs: [...state.reset],
+                alldogs: [...state.reset],
+                pagNum:1
             }
         
         case NEXT:
@@ -124,6 +127,12 @@ const reducer = (state = initialState , actions) => {
                 ...state,
                 dogs:[actions.payload, ...state.dogs],
                 alldogs:[...state.alldogs,actions.payload]
+            }
+        
+        case CLEAR:
+            return {
+                ...state,
+                dogsID: []
             }
         default: 
         return state
