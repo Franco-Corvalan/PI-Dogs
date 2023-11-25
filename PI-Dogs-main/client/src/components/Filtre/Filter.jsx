@@ -1,12 +1,16 @@
-import React from "react";
+import {React, useEffect} from "react";
 import {useDispatch , useSelector} from "react-redux";
-import { filterOrigin , orderName , orderWeight , filterTemp , reset} from "../../redux/actions";
+import { filterOrigin , orderName , orderWeight , filterTemp , reset , getTemperaments} from "../../redux/actions";
 import './Filter.css';
 import { useState } from "react";
 
 const Filter = () => {
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getTemperaments())
+    },[])
+    
     const temperaments = useSelector((state) => state.temperaments);
     const [origin,setOrigin] = useState('Default');
     const [name,setName] = useState('Default');

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createDog } from '../../redux/actions';
+import { createDog , getTemperaments} from '../../redux/actions';
 import validation from '../../components/validation/validation';
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,11 @@ import './Create.css';
 
 const CreateDogForm = () => {
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getTemperaments())
+    },[])
+
     const navigate = useNavigate();
     const temperaments = useSelector((state) => state.temperaments);
 

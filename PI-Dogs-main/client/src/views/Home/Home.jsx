@@ -2,7 +2,7 @@
 import Cards from '../../components/Cards/Cards';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getDogs , getTemperaments } from '../../redux/actions';
+import { getDogs } from '../../redux/actions';
 
 import "./Home.css";
 
@@ -12,10 +12,6 @@ const Home = () => {
   useEffect(() => {
     dispatch(getDogs())
   },[]);
-
-  useEffect(() => {
-    dispatch(getTemperaments())
-  },[])
 
   return(
     <div>
