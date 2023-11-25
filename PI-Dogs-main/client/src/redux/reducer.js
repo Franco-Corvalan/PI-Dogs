@@ -42,7 +42,7 @@ const reducer = (state = initialState , actions) => {
         case GET_NAME:
             return {
                 ...state,
-                dogs: [actions.payload],
+                dogs: actions.payload,
                 pagNum:1,
             }
         case GET_TEMPERAMENTS:

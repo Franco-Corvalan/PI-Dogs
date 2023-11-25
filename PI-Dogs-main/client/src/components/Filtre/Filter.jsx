@@ -12,6 +12,7 @@ const Filter = () => {
     },[])
     
     const temperaments = useSelector((state) => state.temperaments);
+    const uniqueTemperaments = [...new Set(temperaments.map((temperament) => temperament.name))];
     const [origin,setOrigin] = useState('Default');
     const [name,setName] = useState('Default');
     const [weight,setWeight] = useState('Default');
@@ -70,11 +71,11 @@ const Filter = () => {
 
             <select className="FiltroItem" value={temp} name="TEMP" onChange={handleTemp}>
                 <option value="Default" disabled selected>(Select Temp)</option>
-                {temperaments?.map((temperament)=>{
-                    return (
-                        <option value={temperament.name} key={temperament.id}>{temperament.name}</option>
-                    )
-                })}
+                {uniqueTemperaments.map((temperament, index) => (
+                    <option value={temperament} key={index}>
+                        {temperament}
+                    </option>
+                ))}
             </select>
 
             <button className="Button" onClick={handleReset}>Reset</button>

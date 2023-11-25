@@ -66,6 +66,7 @@ export const getTemperaments = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`http://localhost:3001/temperament`)
+            console.log(data);
             return dispatch({
                 type: GET_TEMPERAMENTS,
                 payload: data
