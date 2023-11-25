@@ -5,7 +5,8 @@ const getDogsName = async (req, res) => {
     try {
         const arrDogs = await getDogsMAIN();
         
-        const result = arrDogs.find(elem => elem.name.toLowerCase() == name.toLowerCase());
+        const result = arrDogs.filter(e => e.name && e.name.toLowerCase().includes(name.toLowerCase()));
+        console.log(result)
         result ? res.status(200).send(result) : res.status(400).send('error')
 
     } catch (error) {
