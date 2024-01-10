@@ -1,12 +1,19 @@
-.Filtro{
-   margin-left: 100px;
-   margin-right: 100px;
-}
-
-.FiltroItem{
+.Filtro {
+   margin-left: 5%;
+   margin-right: 5%;
+ }
+ 
+ .FiltroItem {
    margin: 1px;
-}
-
-.Button{
+ }
+ 
+ .Button {
    margin: 5px;
+ }
+ 
+ @media only screen and (max-width: 768px) {
+  .Filtro{
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
 }

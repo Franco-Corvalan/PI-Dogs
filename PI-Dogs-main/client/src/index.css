@@ -48,3 +48,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* Estilos Responsivos */
+@media only screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+}

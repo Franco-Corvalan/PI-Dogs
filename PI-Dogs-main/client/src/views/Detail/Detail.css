@@ -19,6 +19,22 @@
     padding: 10px;
     height: 50px;
     width: 1000 px;
-    font-size: 15px;
-    
+    font-size: 15px; 
+}
+
+@media screen and (max-width: 768px) {
+    .detalle {
+        padding: 4vw;
+    }
+
+    .img {
+        width: 80vw;
+        max-width: none; /* Eliminando el ancho máximo en pantallas más pequeñas */
+    }
+
+    .info {
+        padding: 2vw;
+        max-height: none; /* Eliminando la altura máxima en pantallas más pequeñas */
+        font-size: 2vw;
+    }
 }

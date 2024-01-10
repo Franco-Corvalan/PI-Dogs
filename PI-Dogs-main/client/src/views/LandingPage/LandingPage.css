@@ -5,16 +5,18 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
+    background-size: cover; /* Asegura que el fondo cubra todo el contenedor */
 }
 
-.Imagen{
+.Imagen {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 2000px;
+    width: 100%; /* El ancho de la imagen es el 100% del contenedor */
+    height: 100%; /* La altura de la imagen es el 100% del contenedor */
 }
 
-.Welcom{
+.Welcom {
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -22,8 +24,23 @@
     height: 500px;
     width: 500px;
     background-color: rgba(59, 58, 58, 0.719);
+    background-size: cover;
 }
 
-.Titulo{
+.Titulo {
     color: #fff;
+}
+
+/* Estilos Responsivos */
+@media only screen and (max-width: 768px) {
+    .Welcom {
+        width: 70%;
+    }
+    .Contenedor {
+        background-size: contain;
+    }
+    .Imagen {
+        width: 100%; /* Ajustar el ancho para dispositivos más pequeños si es necesario */
+        height: 100%; /* Ajustar la altura para dispositivos más pequeños si es necesario */
+    }
 }

@@ -13,3 +13,17 @@
     margin: 200px;
     color: #fff;
 }
+
+/* Estilos Responsivos */
+@media only screen and (max-width: 768px) {
+    .Nav {
+      height: auto; 
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .NavItem {
+      margin: 5%; 
+      margin-bottom: 5px;
+    }
+  }

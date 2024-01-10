@@ -17,3 +17,17 @@
 .Ruta{
   color: #ffff;
 }
+
+/* Estilos Responsivos */
+@media only screen and (max-width: 768px) {
+  .Card {
+    width: 90%; /* Ajustado el ancho en pantallas más pequeñas */
+    height: auto; /* Cambiado a "auto" para adaptarse al contenido */
+    margin: 20px; /* Ajustado el margen en pantallas más pequeñas */
+    margin-top: 50px; /* Ajustado el margen superior en pantallas más pequeñas */
+  }
+
+  .Image {
+    height: auto; /* Cambiado a "auto" para adaptarse al contenido */
+  }
+}

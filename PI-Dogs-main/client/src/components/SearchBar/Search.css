@@ -1,3 +1,10 @@
-.BuscarItem{
-    margin: 5px;
+.BuscarItem {
+  margin: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .Buscar{
+    
+    margin-bottom: 10%;
+  }
 }

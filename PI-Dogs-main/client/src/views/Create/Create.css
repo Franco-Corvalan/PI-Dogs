@@ -1,23 +1,23 @@
 .Container__Create {
     background-color: rgba(9, 5, 2, 0.8);
     flex: auto;
-    padding: 8rem;
-    width: 30rem;
-    display: flex;
-    margin-top: 100px;
+    padding: 4rem; /* Se redujo el padding para tamaños de pantalla más pequeños */
+    max-width: 30rem; /* Se cambió 'width' a 'max-width' para permitir que el contenedor sea más flexible */
+    margin: 100px auto; /* Se utilizó 'auto' para centrar el contenedor horizontalmente */
     border-radius: 10px;
+    display: flex;
     align-items: center;
 }
 
-.Container__Inputs{
-    margin: 30px;
+.Container__Inputs {
+    margin: 20px; /* Se redujo el margen para tamaños de pantalla más pequeños */
 }
 
-.error{
+.error {
     color: #ff0000b4;
 }
 
-.SelectTemp{
+.SelectTemp {
     display: flex;
     margin: 10px;
     border-radius: 10px;
@@ -29,19 +29,31 @@
     background-color: #161616;
 }
 
-.SelectRemov{
+.SelectRemov {
     padding: 5px;
 }
 
-.Container__TEMP{
+.Container__TEMP {
     align-items: center;
 }
 
-.Cls{
+.Cls {
     margin-top: 20px;
     margin-bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Cambiado para adaptarse a diferentes tamaños de pantalla */
     grid-gap: 10px;
     background-color: #9999;
+}
+
+/* Media query para tamaños de pantalla más pequeños */
+@media (max-width: 600px) {
+    .Container__Create {
+        padding: 2rem;
+        margin-top: 5px;
+    }
+
+    .Container__Inputs {
+        margin: 10px;
+    }
 }

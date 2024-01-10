@@ -213,7 +213,7 @@ const CreateDogForm = () => {
                                 })
                             }
                         </select>
-
+                        {errors.temperament && <p className='error'>{errors.temperament}</p>}
                         <div className='Cls'>
                             {
                                 formData.temperament.map((SelectTemp, index) => (
@@ -225,7 +225,7 @@ const CreateDogForm = () => {
                             }
                             
                         </div>
-                        {errors.temperament && <p className='error'>{errors.temperament}</p>}
+                        
                     </label>
                 </div>
 
